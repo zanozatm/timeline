@@ -10,17 +10,10 @@
 	list-style: none;
 	font-size: 12px;
 	color: #ccc;
-	transition: all 0.2s linear;
-
-
-	&__label--onbottom &__step {
-		span { 
-			margin-bottom: -25px;
-		}
-	}
+	transition: all 0.6s linear;
 
 	&__step {
-		flex: 1;
+		flex-grow: 1;
 		position: relative;
 		margin-right: -5px;
 		line-height: 2em;
@@ -30,30 +23,25 @@
 			display: block;
 			text-align: center;
 		}
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: 5px;
+		    height: 5px;
+		    background: #ccc;
+		    bottom: -3px;
+		    border-radius: 50%;
+		}
+
 		&:before {
-			content: '';
-			position: absolute;
 			left: 0;
-			width: 5px;
-		    height: 5px;
-		    background: #ccc;
-		    bottom: -3px;
-		    border-radius: 50%;
 		}
-
 		&:after {
-			content: '';
-			position: absolute;
 			right: 0;
-			width: 5px;
-		    height: 5px;
-		    background: #ccc;
-		    bottom: -3px;
-		    border-radius: 50%;
-
 		}
 
-		&--active {
+
+		&-active {
 			border-color: #008000;
 			&:before, &:after { 
 				background-color: #008000;
@@ -61,15 +49,60 @@
 
 		}
 
-		&--progress {
+		&-progress {
 			border-color: #ffa500;
 
 			&:before, &:after {
 				background-color: #ffa500;
 			}
 		}
+
+
 	}
 
+	&__label-onbottom &__step {
+		span { 
+			margin-bottom: -25px;
+		}
+	}
+
+	&__label-onpoint {
+		justify-content: space-between;
+	}
+	&__label-onpoint &__step{
+		flex-grow: 0;
+		border: none;
+
+		span {
+
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				width: 5px;
+			    height: 5px;
+			    background: #ccc;
+			    bottom: -3px;
+			    border-radius: 50%;
+				left: calc(50% - 5px);
+
+
+			}
+		}
+
+		&:first-child > span {
+			&:before, &:after { 
+				left: 0;
+			}
+		}
+
+		&:last-child > span {
+			&:before, &:after { 
+				left: calc(100% - 5px);
+			}
+		}
+
+	}
+	
 	
 }
 
