@@ -1,5 +1,6 @@
 'use strict';
 const 	gulp    	 = require('gulp'),
+		watch  		 = require('gulp-watch'),
 		autoprefixer = require('gulp-autoprefixer'),
 		sass		 = require('gulp-sass'),
 		minifyCss	 = require('gulp-minify-css'),
@@ -59,9 +60,6 @@ gulp.task('pug:public', function() {
 
 gulp.task('js:public', function() {
 	gulp.src(path.src.js)
-	.pipe(rigger())
-	.pipe(sourcemap.init())
-	.pipe(sourcemap.write())
 	.pipe(gulp.dest(path.public.js))
 	.pipe(reload({stream: true}));
 });
@@ -71,10 +69,6 @@ gulp.task('css:public', function() {
 	.pipe(plumber({
 	          errorHandler: notify.onError()
 	   }))
-	.pipe(sourcemap.init())
-	.pipe(sass({
-		includePaths: require('node-normalize-scss').includePaths
-	}))
 	.pipe(autoprefixer(['last 3 versions', '> 1%'], { cascade: true }))
 	.pipe(gcmq())
 	.pipe(minifyCss())
