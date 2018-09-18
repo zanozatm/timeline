@@ -8,8 +8,7 @@ const 	gulp    	 = require('gulp'),
 		pug 		 = require('gulp-pug'),
 		htmlbeautify = require('gulp-html-beautify'),
 		plumber 	 = require('gulp-plumber'),
-		notify 		 = require("gulp-notify"),
-
+		notify 		 = require('gulp-notify'),
 		browserSync	 = require('browser-sync'),
 		reload 		 = browserSync.reload;
 
@@ -22,19 +21,19 @@ const	path 		 = {
 		},
 
 		src: {
-			pug  : "src/**/*.pug", 
+			pug  : 'src/**/*.pug', 
 			js	 : 'src/js/**/*.js',
 			css  : 'src/css/**/*.scss'
 		},
 
 		watch: {
-			pug  : "src/**/*.pug", 
+			pug  : 'src/**/*.pug', 
 			js	 : 'src/js/**/*.js',
 			css  : 'src/css/**/*.scss'
 		}
 	};
 
-gulp.task("webserver", function() {
+gulp.task('webserver', function() {
 	browserSync({
 		server: {
 			baseDir: "./public"
@@ -69,6 +68,7 @@ gulp.task('css:public', function() {
 	.pipe(plumber({
 	          errorHandler: notify.onError()
 	   }))
+	.pipe(sass())
 	.pipe(autoprefixer(['last 3 versions', '> 1%'], { cascade: true }))
 	.pipe(gcmq())
 	.pipe(minifyCss())
@@ -96,7 +96,7 @@ gulp.task('htmlbeautify', function() {
 gulp.task('build', [
 	'js:public',
 	'css:public',
-	'pug:public',
+	'pug:public'
 ]);
 
 gulp.task('watch', function() {
@@ -115,5 +115,5 @@ gulp.task('watch', function() {
 gulp.task('default', [
 	'webserver',
 	'watch',
-	'build',	
+	'build'	
 ]);
