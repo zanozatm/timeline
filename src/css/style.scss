@@ -1,3 +1,5 @@
+$maxPoints: 30;
+
 .wrapper {
 	max-width: 1080px;
 	margin: 40px auto;
@@ -68,6 +70,7 @@
 
 	&__label-onpoint {
 		justify-content: space-between;
+		border-bottom: 1px solid;
 	}
 	&__label-onpoint &__step{
 		flex-grow: 0;
@@ -84,8 +87,6 @@
 			    bottom: -3px;
 			    border-radius: 50%;
 				left: calc(50% - 5px);
-
-
 			}
 		}
 
@@ -100,6 +101,18 @@
 				left: calc(100% - 5px);
 			}
 		}
+
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			display: block;
+			z-index: -1;
+		    height: 1px;
+		    bottom: 0px;
+			left: calc(50% - 5px);
+			max-width:1080px;
+		}
+
 
 	}
 	
