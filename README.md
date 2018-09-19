@@ -1,4 +1,3 @@
-# timeline
-h1 Timeline
+# Timeline
 =====================
 Interesting test task
