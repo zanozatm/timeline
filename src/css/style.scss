@@ -62,22 +62,26 @@ $maxPoints: 30;
 
 	}
 
-	&__label-onbottom &__step {
-		span { 
-			margin-bottom: -25px;
-		}
-	}
+
 
 	&__label-onpoint {
 		justify-content: space-between;
-		border-bottom: 1px solid;
 	}
 	&__label-onpoint &__step{
-		flex-grow: 0;
-		border: none;
+		flex-grow: 1;
+		    &:last-child{
+		      flex-grow: 0;
+		    }
+
+		    &:not(:last-child):not(:first-child) span {
+			    transform: translateX(-50%);
+			}
 
 		span {
-
+			display: inline-block;
+		    text-align: center;
+		    position: relative;
+		
 			&:before, &:after {
 				content: '';
 				position: absolute;
@@ -105,17 +109,51 @@ $maxPoints: 30;
 		&:before, &:after {
 			content: '';
 			position: absolute;
-			display: block;
-			z-index: -1;
-		    height: 1px;
-		    bottom: 0px;
-			left: calc(50% - 5px);
-			max-width:1080px;
+			display: none;
+
+		}
+
+		&-active  {
+
+      		border-color: #008000;
+			span {
+				&:before, &:after { 
+					background-color: #008000;
+				}
+			}
+
+		}
+
+		&-progress  {
+
+      		border-color: #ccc;
+			span {
+				&:before, &:after { 
+					background-color: #ffa500;
+				}
+			}
+
 		}
 
 
 	}
 	
+	&__label-onbottom{
+		span { 
+			margin-bottom: -25px;
+		}
+	}
+
+	
 	
 }
 
+.timeline__label-onbottom.timeline__label-onpoint{
+		span { 
+			bottom: -25px;
+			&:before, &:after {
+				top: -3px;
+			}
+
+		}
+	}
