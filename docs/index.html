@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Timeline test task</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Timeline</h2>
+      <ul class="timeline">
+        <li class="timeline__step timeline__step-active"><span>step 1</span></li>
+        <li class="timeline__step timeline__step-active"><span>step 2</span></li>
+        <li class="timeline__step timeline__step-active"><span>step 3</span></li>
+        <li class="timeline__step timeline__step-active"><span>step 4</span></li>
+        <li class="timeline__step timeline__step-progress"><span>step 5</span></li>
+        <li class="timeline__step"><span>step 6</span></li>
+      </ul>
+
+<br>
+<p>У таймлайна есть несколько состояний:</p>
+
+<ol>
+  <li><strong><span style="color:#cccccc">.timeline__step</span> -&nbsp;</strong>шаг не пройден - по умолчанию для элемента списка;</li>
+  <li><span style="color:#ffa500">.</span><strong><span style="color:#ffa500">timeline__step-progress</span> -&nbsp;</strong>шаг в процессе - дополнительный класс к&nbsp;элементу списка&nbsp;с&nbsp;классом&nbsp;timeline__step;</li>
+  <li><span style="color:#008000">.</span><strong><span style="color:#008000">timeline__step-active</span>&nbsp;-&nbsp;</strong>шаг пройден -&nbsp; дополнительный класс к&nbsp;элементу списка&nbsp;с&nbsp;классом&nbsp;timeline__step.</li>
+</ol>
+
+<p>По умолчанию для компонента заданы опции:</p>
+
+<ul>
+  <li>лейблы по центру прогресс-линии,</li>
+  <li>лейблы над таймлайном.</li>
+</ul>
+
+<p>Чтобы изменить положение лэйблов, к элементу списка добавьте&nbsp;классы для отображения:</p>
+
+<ul>
+  <li><strong>.timeline__label-onbottom&nbsp; -&nbsp;</strong>лейблов под таймлайном;</li>
+  <li><strong>.timeline__label-onpoint -&nbsp;</strong>лейблов по центру чекпоинта.&nbsp;</li>
+</ul>
+
+<p>Добавьте оба класса для отображения лэйблов под таймлайном и по центру чекпоинта.</p>
+
+<p>Demo:</p>
+<div class="demo-block">
+<ul class="timeline" id="demo">
+  <li class="timeline__step timeline__step-active"><span>step 1</span></li>
+  <li class="timeline__step timeline__step-active"><span>step 2</span></li>
+  <li class="timeline__step timeline__step-progress"><span>step 3</span></li>
+  <li class="timeline__step"><span>step 4</span></li>
+</ul>
+</div>
+<div><br>
+  <label><input type="checkbox" name="onbottom" id="onbottom" onclick="labelPosition()"> <strong>.timeline__label-onbottom&nbsp; -&nbsp;</strong>лейблы под таймлайном </label><br>
+  <label><input type="checkbox" name="onpoint" id="onpoint" onclick="labelPosition()" > <strong>.timeline__label-onpoint -&nbsp;</strong>лейблы по центру чекпоинта</label>
+</div>
+
+
+<script type="text/javascript">
+  var onBottom = document.getElementById("onbottom");
+  var onPoint = document.getElementById("onpoint");
+  var demo = document.getElementById("demo");
+
+  function labelPosition() {
+
+  if ( onBottom.checked == true ){
+      demo.classList.add("timeline__label-onbottom");
+  } else {
+      demo.classList.remove("timeline__label-onbottom");
+  }
+
+  if ( onPoint.checked == true ){
+      demo.classList.add("timeline__label-onpoint");
+  } else {
+      demo.classList.remove("timeline__label-onpoint");
+  }
+}
+
+</script>
+    </div>
+  </body>
+</html>
