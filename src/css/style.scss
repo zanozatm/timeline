@@ -1,5 +1,3 @@
-$maxPoints: 30;
-
 .wrapper {
 	max-width: 1080px;
 	margin: 40px auto;
@@ -71,6 +69,7 @@ $maxPoints: 30;
 		flex-grow: 1;
 		    &:last-child{
 		      flex-grow: 0;
+		      right: 5px;
 		    }
 
 		    &:not(:last-child):not(:first-child) span {
@@ -90,7 +89,7 @@ $maxPoints: 30;
 			    background: #ccc;
 			    bottom: -3px;
 			    border-radius: 50%;
-				left: calc(50% - 5px);
+				left: 50%;
 			}
 		}
 
@@ -121,6 +120,9 @@ $maxPoints: 30;
 					background-color: #008000;
 				}
 			}
+			&+:last-child{
+        		border-color: #008000;
+      		}
 
 		}
 
@@ -131,7 +133,7 @@ $maxPoints: 30;
 				&:before, &:after { 
 					background-color: #ffa500;
 				}
-			}
+			}	
 
 		}
 
@@ -142,9 +144,7 @@ $maxPoints: 30;
 		span { 
 			margin-bottom: -25px;
 		}
-	}
-
-	
+	}	
 	
 }
 
